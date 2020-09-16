@@ -1,15 +1,31 @@
-<?php 
-/*
-کانال شهر سورس مرجع انواع سورس کد های مختلف
-بانک انواع سورس کد های مختلف به صورت کاملا تست شده
-هر روز کلی سورس کد و اسکریپت منتظر شماست !
+<?php
 
-@ShahreSource
-https://t.me/ShahreSource
-*/
+if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
+$protocol = $_SERVER['SERVER_PROTOCOL'];
+if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ) ) ) {
+$protocol = 'HTTP/1.0';
+}
+
+header( 'Allow: POST' );
+header( "$protocol 405 Method Not Allowed" );
+header( 'Content-Type: text/plain' );
+exit;
+}
+
+
+
+/* In the name of Allah = بسم اللّه الرّحمن الرّحیم */
+
+/**
+ * @فارسی : توابع زمان و تاریخ هجری شمسی (جلالی) در پی اچ پی
+ * @name: Hijri_Shamsi,Solar(Jalali) Date and Time Functions
+ * @Author : Reza Gholampanahi & WebSite : http://jdf.scr.ir
+ * @License: GNU/LGPL _ Open Source & Free : [all functions]
+ * @Version: 2.70 =>[ 1395/11/22 = 1438/05/12 = 2017/02/10 ]
+ */
 
 /*	F	*/
-function jdate($format,$timestamp='',$none='',$time_zone='Asia/Tehran',$tr_num='fa'){
+function jdate($format,$timestamp='',$none='',$time_zone='Asia/Tehran',$tr_num='en'){
 
  $T_sec=0;/* <= رفع خطاي زمان سرور ، با اعداد '+' و '-' بر حسب ثانيه */
 
@@ -495,7 +511,7 @@ function jcheckdate($jm,$jd,$jy){
 /*	F	*/
 function tr_num($str,$mod='en',$mf='٫'){
  $num_a=array('0','1','2','3','4','5','6','7','8','9','.');
- $key_a=array('0','1','2','3','4','5','6','7','8','9',$mf);
+ $key_a=array('۰','۱','۲','۳','۴','۵','۶','۷','۸','۹',$mf);
  return($mod=='fa')?str_replace($num_a,$key_a,$str):str_replace($key_a,$num_a,$str);
 }
 
@@ -527,7 +543,7 @@ function jdate_words($array,$mod=''){
 	break;
 
 	case'mm':
-	$key=array('1','2','3','4','5','6','7','8','9','10','11','12');
+	$key=array('فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند');
 	$array[$type]=$key[$num-1];
 	break;
 
@@ -639,11 +655,4 @@ function jalali_to_gregorian($jy,$jm,$jd,$mod=''){
  }
  return($mod==='')?array($gy,$gm,$gd):$gy .$mod .$gm .$mod .$gd;
 }
-/*
-کانال شهر سورس مرجع انواع سورس کد های مختلف
-بانک انواع سورس کد های مختلف به صورت کاملا تست شده
-هر روز کلی سورس کد و اسکریپت منتظر شماست !
 
-@ShahreSource
-https://t.me/ShahreSource
-*/
